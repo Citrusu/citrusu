@@ -23,10 +23,11 @@ tags:
 
 - 查看路径
 
-        npm root -g
-    或者
 
-        npm config get
+    npm root -g
+或者
+
+    npm config get
 
 ## 使用npm安装模块
 

@@ -16,57 +16,56 @@ tags:
 
 *   尺寸：100-20px
 
-        <script>
-            //图片大小测试
-            var src = 'img/';
-            var img = 'act_happy_code';
-            var type = ['jpg','png','gif'];
-            var size = [100,90,80,70,60,50,40,30,20];
-            var box = document.querySelectorAll('body')[0];
-            for(var i = 0,sizeLen = size.length; i < sizeLen; i++){
-                for(var j = 0,typeLen = type.length; j < typeLen; j++){
-                    var imgBox = document.createElement('div');
-        
-                    var ctext = document.createTextNode(type[j]+ '_' + size[i] + 'x' + size[i] + 'px');
-        
-                    var cimg = document.createElement('img');
-                    cimg.style.width = size[i] + 'px';
-                    cimg.style.height = size[i] + 'px';
-                    cimg.setAttribute('src', src + img + '.'+ type[j] );
-                    imgBox.appendChild(ctext);
-                    imgBox.appendChild(cimg);
-                    box.appendChild(imgBox);
-                }
+
+        //图片大小测试
+        var src = 'img/';
+        var img = 'act_happy_code';
+        var type = ['jpg','png','gif'];
+        var size = [100,90,80,70,60,50,40,30,20];
+        var box = document.querySelectorAll('body')[0];
+        for(var i = 0,sizeLen = size.length; i < sizeLen; i++){
+            for(var j = 0,typeLen = type.length; j < typeLen; j++){
+                var imgBox = document.createElement('div');
+    
+                var ctext = document.createTextNode(type[j]+ '_' + size[i] + 'x' + size[i] + 'px');
+    
+                var cimg = document.createElement('img');
+                cimg.style.width = size[i] + 'px';
+                cimg.style.height = size[i] + 'px';
+                cimg.setAttribute('src', src + img + '.'+ type[j] );
+                imgBox.appendChild(ctext);
+                imgBox.appendChild(cimg);
+                box.appendChild(imgBox);
             }
-        </script>
+        }
     
 *   清晰度：100%-5% 
 > 在清晰度测试上我使用了七牛的压缩接口
 
-        <script>
-            //图片质量测试
-            var src = '';
-            var mode = '?imageView2/2';
-            var img = 'http://ob9fno759.bkt.clouddn.com/act_happy_code';
-            var type = ['jpg','png','gif'];
-            var quality = [100,75,50,25,10,5];
-            var size = [80,60,40,30,20];
-            var box = document.querySelectorAll('body')[0];
-            for(var i = 0,sizeLen = size.length; i < sizeLen; i++){
-                for(var j = 0,qLen = quality.length; j < qLen; j++){
-                    var randNum = Math.ceil(Math.random()*1000);
-                    var imgBox = document.createElement('div');
-        
-                    var ctext = document.createTextNode('质量:'+ quality[j] +'%' + '_' + size[i] + 'x' + size[i] + 'px');
-        
-                    var cimg = document.createElement('img');
-                    cimg.setAttribute('src', src + img +'.gif'+ mode +'/w/'+size[i] + '/h/'+ size[i] + '/q/' + quality[j] +'#'+randNum);
-                    imgBox.appendChild(ctext);
-                    imgBox.appendChild(cimg);
-                    box.appendChild(imgBox);
-                }
+
+        //图片质量测试
+        var src = '';
+        var mode = '?imageView2/2';
+        var img = 'http://ob9fno759.bkt.clouddn.com/act_happy_code';
+        var type = ['jpg','png','gif'];
+        var quality = [100,75,50,25,10,5];
+        var size = [80,60,40,30,20];
+        var box = document.querySelectorAll('body')[0];
+        for(var i = 0,sizeLen = size.length; i < sizeLen; i++){
+            for(var j = 0,qLen = quality.length; j < qLen; j++){
+                var randNum = Math.ceil(Math.random()*1000);
+                var imgBox = document.createElement('div');
+    
+                var ctext = document.createTextNode('质量:'+ quality[j] +'%' + '_' + size[i] + 'x' + size[i] + 'px');
+    
+                var cimg = document.createElement('img');
+                cimg.setAttribute('src', src + img +'.gif'+ mode +'/w/'+size[i] + '/h/'+ size[i] + '/q/' + quality[j] +'#'+randNum);
+                imgBox.appendChild(ctext);
+                imgBox.appendChild(cimg);
+                box.appendChild(imgBox);
             }
-        </script>
+        }
+
 
 > 经过以上测试：尺寸和清晰度都有可能影响图片识别，但是都不是最影响识别的原因。
 

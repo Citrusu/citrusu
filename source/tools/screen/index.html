@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>screenTest</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+</head>
+<style>
+    .tis{
+        text-align: center;
+        font-size: 18px;
+    }
+    .screen-show{
+        display: none;
+    }
+    .screen-show li{
+        z-index: 5;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        display: none;
+    }
+    h3 a{
+        z-index: 10;
+    }
+</style>
+<body>
+<div class="tis">
+    <h1>屏幕颜色检测工具</h1>
+    <h2>Ver 1.0</h2>
+    <h3>by <a href="http://hicitrus.com">Citrus</a></h3>
+    <p>点击鼠标左键和空格键开始检测</p>
+    <p>点击鼠标右键和ESC键退出，触屏长按退出</p>
+    <div id="showBox"></div>
+</div>
+<script>
+    window.onload = function(){
+        init();
+    };
+    //定义颜色
+    var colors = [
+        '#fff',
+        '#f00',
+        '#0f0',
+        '#00f',
+        '#000'
+    ];
+    function init(){
+        //创建HTML
+        function createHtml(){
+            var html = '';
+            html += '<ul class="screen-show" id="screenShow">';
+            for(var i = 0; i < len; i++){
+                html += '<li style="background-color: '+colors[i]+'"></li>';
+            }
+            html += '</ul>';
+            return html;
+        }
+        var len = colors.length;
+        var index = 0;
+        var html = createHtml();
+        document.getElementById('showBox').innerHTML = html;
+
+        //执行
+        function changeColor(){
+            var showBox = document.getElementById('screenShow');
+            var list = showBox.getElementsByTagName('li');
+            showBox.style.display = 'block';
+            for(var i = 0,listNum = list.length; i < listNum; i++){
+                if(i == index){
+                    list[i].style.display = 'block';
+                }else{
+                    list[i].style.display = 'none';
+                }
+            }
+            index++;
+            if(index >= len){
+                index = 0;
+            }
+            fullShow();
+        }
+
+        //回到初始状态
+        function defaultStatus(){
+            var showBox = document.getElementById('screenShow');
+            showBox.style.display = 'none';
+            index = 0;
+            exitFullShow();
+        }
+
+        /*
+        * 触发事件
+        * */
+        //鼠标点击
+        document.onmousedown  = function(e){
+            btn = e.button;
+            if(btn == 0){
+                changeColor();
+            }else if(btn == 2){
+                defaultStatus();
+            }
+        };
+
+        //键盘按下
+        document.onkeydown = function(e){
+            //alert(e.keyCode);
+            var keyCode = e.keyCode;
+            if(keyCode == 32){
+                changeColor();
+            }else if(keyCode == 27){
+                defaultStatus();
+            }
+        };
+
+        //移动端触屏
+        document.addEventListener('touchstart',function(){
+            touchEvent();
+        });
+
+        var time = 0;
+        var setTime;
+        function touchEvent(){
+            setTime = setInterval(function(){
+                time ++;
+            },500);
+
+        }
+        document.addEventListener('touchend',function(){
+            if(time > 1){
+                defaultStatus();
+            }else{
+                changeColor();
+            }
+            time = 0;
+            clearInterval(setTime);
+        });
+        //阻止鼠标右键默认事件
+        document.oncontextmenu = function(e){
+            e.preventDefault();
+        };
+
+        /*
+        * 全屏显示
+        * */
+        function fullShow() {
+            var docElm = document.documentElement;
+            //W3C
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            }
+            //FireFox
+            else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen();
+            }
+            //Chrome等
+            else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen();
+            }
+            //IE11
+            else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+        function exitFullShow(){
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+            else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+    }
+</script>
+</body>
+</html>

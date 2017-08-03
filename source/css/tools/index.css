@@ -1,0 +1,44 @@
+html{
+    font-size: 20px;
+}
+body{
+    background-color: #00b7c3;
+}
+header{
+    padding: .5rem 1rem;
+    color: #efefef;
+    transition: all .8s ease;
+}
+header a{
+    color: #efefef;
+    text-decoration: none;
+}
+.logo{
+    font-family: "Monotype Corsiva";
+    font-size: 2rem;
+    font-weight: bold;
+	position: absolute;
+	bottom: 2.5rem;
+	right: 5rem;
+}
+.logo img{
+    transition: all .8s ease;
+    transform: scale(1.2);
+}
+nav{
+
+}
+nav a{
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 .3rem;
+    margin: .5rem 0;
+    font-family: Lato;
+	transition: all .1s ease;
+}
+nav a:hover{
+    border-left:4px solid #efefef;
+    color: #fff;
+    /*font-size: 1.22rem;*/
+}
