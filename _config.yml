@@ -16,7 +16,7 @@ sign: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABACAYAAAD4Zo7QAAAAGXR
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://hicitrus.com/blog
 root: /
-permalink: blog/:title/
+permalink: /:title/
 permalink_defaults:
 
 # Directory
