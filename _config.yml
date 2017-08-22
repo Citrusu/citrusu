@@ -43,7 +43,6 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  line_number: true
   tab_replace:
 
 # Category & Tag
