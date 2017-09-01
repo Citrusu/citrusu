@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "为什么微信二维码不能识别？"
-data: 2017-01-16
+data:       2017-01-16
 author:     "Citrus"
 tags:
     - 微信
@@ -15,7 +15,7 @@ tags:
 ### 测试过程
 
 *   尺寸：100-20px
-{% codeblock  %}
+```js
     //图片大小测试
     var src = 'img/';
     var img = 'act_happy_code';
@@ -37,7 +37,7 @@ tags:
             box.appendChild(imgBox);
         }
     }
-{% endcodeblock %} 
+```
 *   清晰度：100%-5% 
 > 在清晰度测试上我使用了七牛的压缩接口
 
