@@ -6,8 +6,12 @@
     "version": "3.3.8"
   },
   "dependencies": {
+    "assert-plus": "^1.0.0",
+    "domelementtype": "^1.1.3",
+    "entities": "^1.0.0",
     "hexo": "^3.3.8",
     "hexo-browsersync": "^0.2.0",
+    "hexo-cli": "^1.0.3",
     "hexo-deployer-git": "^0.3.1",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
@@ -20,6 +24,7 @@
     "hexo-renderer-jade": "^0.4.1",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.0",
+    "source-map": "^0.1.34"
   }
 }
