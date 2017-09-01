@@ -16,7 +16,6 @@ tags:
 
 *   尺寸：100-20px
 
-
         //图片大小测试
         var src = 'img/';
         var img = 'act_happy_code';
@@ -26,9 +25,9 @@ tags:
         for(var i = 0,sizeLen = size.length; i < sizeLen; i++){
             for(var j = 0,typeLen = type.length; j < typeLen; j++){
                 var imgBox = document.createElement('div');
-    
+
                 var ctext = document.createTextNode(type[j]+ '_' + size[i] + 'x' + size[i] + 'px');
-    
+
                 var cimg = document.createElement('img');
                 cimg.style.width = size[i] + 'px';
                 cimg.style.height = size[i] + 'px';
@@ -55,9 +54,9 @@ tags:
             for(var j = 0,qLen = quality.length; j < qLen; j++){
                 var randNum = Math.ceil(Math.random()*1000);
                 var imgBox = document.createElement('div');
-    
+
                 var ctext = document.createTextNode('质量:'+ quality[j] +'%' + '_' + size[i] + 'x' + size[i] + 'px');
-    
+
                 var cimg = document.createElement('img');
                 cimg.setAttribute('src', src + img +'.gif'+ mode +'/w/'+size[i] + '/h/'+ size[i] + '/q/' + quality[j] +'#'+randNum);
                 imgBox.appendChild(ctext);
