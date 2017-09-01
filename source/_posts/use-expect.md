@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      "使用 expect"
+#subtitle:   "about-respons"
+date:       2017-08-22
+author:     "Citrus"
+#header-img: "img/post-bg-re-vs-ng2.jpg"
+#header-mask: 0.5
+#catalog:    false
+tags:
+    - expect
+    - linux
+---
 # 安装expect
 > expect 可以完成一些自动化的任务，举个粟子：进入 a 服务器更新代码，退出再进入 b 服务器更新代码……
 
