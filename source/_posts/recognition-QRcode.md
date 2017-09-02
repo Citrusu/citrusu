@@ -3,6 +3,7 @@ layout:     post
 title:      "为什么微信二维码不能识别？"
 data:       2017-01-16
 author:     "Citrus"
+icon:       "fa-weixin"
 tags:
     - 微信
     - 二维码

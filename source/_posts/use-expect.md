@@ -4,6 +4,7 @@ title:      "使用 expect"
 #subtitle:   "about-respons"
 date:       2017-08-22
 author:     "Citrus"
+icon:       "fa-linux"
 #header-img: "img/post-bg-re-vs-ng2.jpg"
 #header-mask: 0.5
 #catalog:    false

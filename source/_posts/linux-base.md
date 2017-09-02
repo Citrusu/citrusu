@@ -4,6 +4,7 @@ title:      "linux常用命令"
 #subtitle:   "about-respons"
 date:       2016-05-07
 author:     "Citrus"
+icon:       "fa-linux"
 #header-img: "img/post-bg-re-vs-ng2.jpg"
 #header-mask: 0.5
 #catalog:    false
