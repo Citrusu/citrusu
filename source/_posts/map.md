@@ -4,7 +4,7 @@ title:      "Web 地图 GPS 定位"
 subtitle:   "实时更新位置"
 date:       2017-09-08
 author:     "Citrus"
-icon:       "fa-globe"
+icon:       "fa-location-arrow"
 tags:
     - Map
     - 百度地图
