@@ -1,7 +1,8 @@
 ---
-layout:     page
+layout:     about
 title:      "关于我"
-date:       2016-05-07
+subtitle:   "about me"
+icon:       "fa-bicycle"
 ---
 
 92男，前端工程师。兴趣广泛，爱折腾，酷爱骑行。
