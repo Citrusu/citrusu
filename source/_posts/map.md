@@ -117,3 +117,5 @@ if (navigator.geolocation) {
   });
 </script>
 ```
+
+> 所有源码已放 github [点我](https://github.com/Citrusu/gps)
