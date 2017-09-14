@@ -1,6 +1,7 @@
 ---
 layout:     about
 title:      "关于我"
+date:       2016-01-01
 subtitle:   "about me"
 icon:       "fa-bicycle"
 ---
