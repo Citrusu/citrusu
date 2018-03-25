@@ -1,0 +1,34 @@
+<% if(page.comments && theme.comments && theme.comments.disqus_shortname){ %>
+<div id="disqus_thread" class="mt5">
+    <div id="commentBtn" class="comment-btn">Comments</div>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- Disqus Comments -->
+<% if (theme.comments && theme.comments.disqus_shortname){ %>
+    <script type="text/javascript">
+        // 点击,延迟加载评论
+        var commentBtn = document.querySelector('#commentBtn');
+        commentBtn.addEventListener('click', function(){
+            loadComments();
+        });
+        
+        setTimeout(loadComments, 10000);
+
+        function loadComments(){
+            if(commentBtn) {
+                commentBtn.style.display = 'node';
+                commentBtn = null;
+
+                var disqus_shortname = '<%= theme.comments.disqus_shortname %>';
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            };
+        }
+        
+    </script>
+    <% } %>
+    
+<% } %>

@@ -1,0 +1,74 @@
+<!-- Banner -->
+<%- partial('_partial/banner.ejs', {
+    mainText: page.title || theme.default_post_title || __('default_post_title'),
+    secondaryText: page.subtitle ? page.subtitle : '',
+    faIconCss: page.icon || theme.default_post_icon || ''
+}) %>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="center">
+            <div class="cf">
+                <div class="fl w-100 w-40-l center fw3 lh-copy pl4-ns tl black-50">
+                  
+                    <div class="mt0-l">
+                        <article class="dt db-l mw8 mw8-m center ml0-l bg-white mv3">
+                            <div class="dtc-m db-l v-mid tc pr0-l" style="min-width: 6rem;">
+                                <img src="<%- config.avatar %>" class="mb4-l br-100 h4 w4 h4-l w4-l dib" title="<%- config.author %>">
+                            </div>
+                        </article>
+                        <div class="mv8">
+                            <div class="center tc">
+                                <% theme.social_platforms.forEach(function(platform) { %>
+                                    <div class="dib mh3">
+                                        <a class="f3 f2-ns white dim" href="<%- platform.url %>" target="_blank">
+                                            <i class="fa <%- platform.fa_icon %>"></i>
+                                        </a>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Categories -->
+                    <% if (page.categories && page.categories.length) { %>
+                        <%- partial('_partial/widget-categories', {item: page}) %>
+
+                        <hr class="dn-l mw4 black-50 mt5" />
+                    <% } %>
+                </div>
+
+                <div class="fl w-100 w-60-l center lh-copy pr4-ns pr0-m  mt5 post-content">
+                    <!-- Tags Vertical -->
+                    <% if (page.tags && page.tags.length) {
+                        var tags = [];
+                        page.tags.forEach(function(tag) {
+                            tags.push('<a class="fw3 ph1 dib" href="' +  config.root + tag.path + '">#' + tag.name + '</a>');
+                        });
+                    %>
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <%- tags.join(' ') %>
+                            </div>
+                        </div>
+                    <% } %>
+
+                    <!-- Main Post Content -->
+                    <%- page.content %>
+                    
+                    <!-- Tags Bottom -->
+                    <% if (page.tags && page.tags.length) { %>
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><%- tags.join(' ') %>
+                        </div>
+                    <% } %>
+
+                </div>
+
+            </div>
+            <!-- Comments -->
+            <!-- <% - partial('_partial/comments.ejs') %> -->
+        </div>
+    </div>
+</div>
