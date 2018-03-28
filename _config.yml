@@ -75,6 +75,6 @@ cnzz: 1261149292
 deploy:
   type: git
   repository: 
-    github: git@git.coding.net:citrusu/blog.git
-    coding: git@github.com:Citrusu/blog.git
-  branch: master
+    coding: git@git.coding.net:citrusu/blog.git
+    github: git@github.com:Citrusu/blog.git
+  branch: gh-pages
