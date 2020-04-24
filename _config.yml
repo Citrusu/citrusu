@@ -13,7 +13,7 @@ avatar: /img/avatar-adm1.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hicitrus.com/blog
+url: https://blog.zyou.top
 root: /  #/blog/
 permalink: :title/
 permalink_defaults:
@@ -74,6 +74,6 @@ cnzz: 1261149292
 deploy:
   type: git
   repository: 
-    #coding: git@e.coding.net:citrusu/blog.git
+    coding: git@e.coding.net:citrusu/blog.git
     github: git@github.com:Citrusu/blog.git
   branch: gh-pages
