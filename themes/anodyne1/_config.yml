@@ -29,14 +29,14 @@ about_widget_text: "My name is Citrus Zhou"
 # Comments.
 comments:
   # Disqus comments
-  disqus_shortname: hicitrus-com
+  disqus_shortname: Citrus
 
 # Google Analytics Tracking ID
 google_analytics:
 
 # Social Media Platforms
 social_platforms:
-  - url: http://hicitrus.com
+  - url: http://www.zyou.top
     fa_icon: fa-home
   - url: http://weibo.com/zhouyou421
     fa_icon: fa-weibo
