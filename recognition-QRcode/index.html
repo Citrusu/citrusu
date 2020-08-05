@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!--Description-->
+    
+        <meta name="description" content="原因分析：
+尺寸太小
+清晰度不够
+
+测试过程
+尺寸：100-20px
+123456789101112131415161718192021//图片大小测试var src = &#39;img/&#39;;var img = &#39;act_happy_code&#39;;var type = [&#39;jpg&#39;,&#39;png&#39;,&#39;gif&#39;]">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Citrus">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="为什么微信二维码不能识别？">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Blog 1">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>为什么微信二维码不能识别？ - Blog 1</title>
+
+    <!-- Tachyons Core CSS -->
+    <!-- <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css"> -->
+    <link rel="stylesheet" href="/blog/css/tachyons.css">
+    <link rel="stylesheet" href="/blog/css/font-awesome.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/about" 
+                    title="About">
+                    About
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">为什么微信二维码不能识别？</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2017-01-16</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-weixin"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="w-100 center lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/blog/tags/微信/">#微信</a> <a class="fw3 ph1 dib" href="/blog/tags/二维码/">#二维码</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h3 id="原因分析："><a href="#原因分析：" class="headerlink" title="原因分析："></a>原因分析：</h3><ul>
+<li>尺寸太小</li>
+<li>清晰度不够</li>
+</ul>
+<h3 id="测试过程"><a href="#测试过程" class="headerlink" title="测试过程"></a>测试过程</h3><ul>
+<li><p>尺寸：100-20px</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片大小测试</span></span><br><span class="line"><span class="keyword">var</span> src = <span class="string">'img/'</span>;</span><br><span class="line"><span class="keyword">var</span> img = <span class="string">'act_happy_code'</span>;</span><br><span class="line"><span class="keyword">var</span> type = [<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>];</span><br><span class="line"><span class="keyword">var</span> size = [<span class="number">100</span>,<span class="number">90</span>,<span class="number">80</span>,<span class="number">70</span>,<span class="number">60</span>,<span class="number">50</span>,<span class="number">40</span>,<span class="number">30</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelectorAll(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,sizeLen = size.length; i &lt; sizeLen; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>,typeLen = type.length; j &lt; typeLen; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> imgBox = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> ctext = <span class="built_in">document</span>.createTextNode(type[j]+ <span class="string">'_'</span> + size[i] + <span class="string">'x'</span> + size[i] + <span class="string">'px'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> cimg = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">        cimg.style.width = size[i] + <span class="string">'px'</span>;</span><br><span class="line">        cimg.style.height = size[i] + <span class="string">'px'</span>;</span><br><span class="line">        cimg.setAttribute(<span class="string">'src'</span>, src + img + <span class="string">'.'</span>+ type[j] );</span><br><span class="line">        imgBox.appendChild(ctext);</span><br><span class="line">        imgBox.appendChild(cimg);</span><br><span class="line">        box.appendChild(imgBox);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清晰度：100%-5% </p>
+<blockquote>
+<p>在清晰度测试上我使用了七牛的压缩接口</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片质量测试</span></span><br><span class="line"><span class="keyword">var</span> src = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">var</span> mode = <span class="string">'?imageView2/2'</span>;</span><br><span class="line"><span class="keyword">var</span> img = <span class="string">'http://ob9fno759.bkt.clouddn.com/act_happy_code'</span>;</span><br><span class="line"><span class="keyword">var</span> type = [<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>];</span><br><span class="line"><span class="keyword">var</span> quality = [<span class="number">100</span>,<span class="number">75</span>,<span class="number">50</span>,<span class="number">25</span>,<span class="number">10</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> size = [<span class="number">80</span>,<span class="number">60</span>,<span class="number">40</span>,<span class="number">30</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelectorAll(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,sizeLen = size.length; i &lt; sizeLen; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>,qLen = quality.length; j &lt; qLen; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> randNum = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*<span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">var</span> imgBox = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> ctext = <span class="built_in">document</span>.createTextNode(<span class="string">'质量:'</span>+ quality[j] +<span class="string">'%'</span> + <span class="string">'_'</span> + size[i] + <span class="string">'x'</span> + size[i] + <span class="string">'px'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> cimg = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">        cimg.setAttribute(<span class="string">'src'</span>, src + img +<span class="string">'.gif'</span>+ mode +<span class="string">'/w/'</span>+size[i] + <span class="string">'/h/'</span>+ size[i] + <span class="string">'/q/'</span> + quality[j] +<span class="string">'#'</span>+randNum);</span><br><span class="line">        imgBox.appendChild(ctext);</span><br><span class="line">        imgBox.appendChild(cimg);</span><br><span class="line">        box.appendChild(imgBox);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>经过以上测试：尺寸和清晰度都有可能影响图片识别，但是都不是最影响识别的原因。</p>
+</blockquote>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>先看看下图，信息过于密集，为了美观在一般的活动设计中二维码都不会很大，而这才是最影响二维码识别的原因。</p>
+<p><img src="http://etui.yidake.com/help/wp-content/uploads/2017/01/2017011610024854.gif" alt="enter image description here"></p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li>获取图片的原链接</li>
+<li>把原链接转换成短链接 <a href="http://dwz.wailian.work/" target="_blank" rel="noopener">短链转换工具</a> </li>
+<li>最后把短链生成二维码</li>
+</ul>
+<p>这样就能得到一张识别度高的二维码图片。</p>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><ul>
+<li>考虑到目前还有不少小屏手机，建议二维码的实际显示尺寸不少于40*40px</li>
+<li>如果二维码在大图上面，压缩之后可以尝试把二维码提取出来，然后再把未压缩的二维码与压缩后的背景合成一张。</li>
+</ul>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/blog/tags/微信/">#微信</a> <a class="fw3 ph1 dib" href="/blog/tags/二维码/">#二维码</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+<div id="disqus_thread" class="mt5">
+    <div id="commentBtn" class="comment-btn">Comments</div>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        // 点击,延迟加载评论
+        var commentBtn = document.querySelector('#commentBtn');
+        commentBtn.addEventListener('click', function(){
+            loadComments();
+        });
+        
+        setTimeout(loadComments, 10000);
+
+        function loadComments(){
+            if(commentBtn) {
+                commentBtn.style.display = 'node';
+                commentBtn = null;
+
+                var disqus_shortname = 'hicitrus-com';
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            };
+        }
+        
+    </script>
+    
+    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50" style="display:none;">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="/blog/img/avatar-adm1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Citrus">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            My name is Citrus Zhou
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/blog/create-git-repo/">搭建git仓库</a>
+        </p>
+    
+        <p>
+            <a href="/blog/learn-threejs/">全景学习</a>
+        </p>
+    
+        <p>
+            <a href="/blog/map/">Web 地图 GPS 定位</a>
+        </p>
+    
+        <p>
+            <a href="/blog/use-expect/">使用 expect</a>
+        </p>
+    
+        <p>
+            <a href="/blog/recognition-QRcode/">为什么微信二维码不能识别？</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<!--  partial('_partial/footer')  -->
+
+<!-- CNZZ analytics -->
+
+<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1261149292&web_id=1261149292"></script>
+</div>
+
+
+</body>
+
+</html>

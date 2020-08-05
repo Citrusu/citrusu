@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!--Description-->
+    
+        <meta name="description" content="背景在地图上某城市添加多个宝藏，然后根据用户 GPS 信息获取当前位置在地图在寻找宝藏。当用户位置到达宝藏位置就打开宝藏。
+目标/技术点
+在 web 页面中实现定位
+当用户移动位置刷新当前位置
+根据 经纬度计算地球上两点距离
+
+
+通过百度地图 API 显示地图
+通过百度地图 API 定时刷新（有问题">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Citrus">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Web 地图 GPS 定位">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Blog 1">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>Web 地图 GPS 定位 - Blog 1</title>
+
+    <!-- Tachyons Core CSS -->
+    <!-- <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css"> -->
+    <link rel="stylesheet" href="/blog/css/tachyons.css">
+    <link rel="stylesheet" href="/blog/css/font-awesome.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/about" 
+                    title="About">
+                    About
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Web 地图 GPS 定位</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2017-09-08</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-location-arrow"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="w-100 center lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/blog/tags/Map/">#Map</a> <a class="fw3 ph1 dib" href="/blog/tags/百度地图/">#百度地图</a> <a class="fw3 ph1 dib" href="/blog/tags/getCurrentPosition/">#getCurrentPosition</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在地图上某城市添加多个宝藏，然后根据用户 GPS 信息获取当前位置在地图在寻找宝藏。当用户位置到达宝藏位置就打开宝藏。</p>
+<h2 id="目标-技术点"><a href="#目标-技术点" class="headerlink" title="目标/技术点"></a>目标/技术点</h2><ul>
+<li>在 web 页面中实现定位</li>
+<li>当用户移动位置刷新当前位置</li>
+<li>根据 经纬度计算地球上两点距离</li>
+</ul>
+<ul>
+<li>通过百度地图 API 显示地图</li>
+<li>通过百度地图 API 定时刷新（有问题）</li>
+</ul>
+<h2 id="问题及过程"><a href="#问题及过程" class="headerlink" title="问题及过程"></a>问题及过程</h2><h3 id="百度定位"><a href="#百度定位" class="headerlink" title="百度定位"></a>百度定位</h3><p>在使用百度地图的 <code>geolocation.getCurrentPosition</code> 接口发现移动位置并没有更新当前位置。查找资料说要设置 <code>maximumAge</code>, 实际上把这个值设置 0 也没啥用，照样不更新位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.getStatus() == BMAP_STATUS_SUCCESS) &#123;</span><br><span class="line">        <span class="keyword">var</span> lng = r.point.lng;</span><br><span class="line">        <span class="keyword">var</span> lat = r.point.lat;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'您的位置baidu：'</span> + lng + <span class="string">','</span> + lat + <span class="string">',时间：'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getMinutes() + <span class="string">':'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds());</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'failed'</span> + <span class="keyword">this</span>.getStatus());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    enableHighAccuracy: <span class="literal">true</span>,</span><br><span class="line">    maximumAge: <span class="number">0</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>经过多次测试猜测百度地图缓存了当前位置，大概需要10分钟才会更新新的位置。放弃之，下一个。</p>
+<h3 id="使用原生接口"><a href="#使用原生接口" class="headerlink" title="使用原生接口"></a>使用原生接口</h3><p>使用原生接口<code>navigator.geolocation.getCurrentPosition</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (navigator.geolocation) &#123;</span><br><span class="line">    navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">p</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//成功获取位置</span></span><br><span class="line">        <span class="keyword">var</span> position = &#123;</span><br><span class="line">            lng: p.coords.longitude,</span><br><span class="line">            lat: p.coords.latitude</span><br><span class="line">        &#125;;</span><br><span class="line">      	<span class="built_in">console</span>.log(position);</span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"Geolocation is not supported by this browser."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>几乎快要搞定了，通过定时调用当前位置再转换成百度的位置显示标记到地图上，完美！✌️BUT ! 安卓一切 OK，IOS 从10开始需要 <code>https</code>协议才能使用 <code>geolocation</code>。否则报 <code>[blocked] Access to geolocation was blocked over insecure connection to [http://www.mydomain.cn](http://www.mydomain.cn/)</code> 错 WTF🤷‍♂️。 </p>
+<p>这时候，你可以选择</p>
+<ul>
+<li>把网站切换成 <code>https</code> ，下面就不用看啦。</li>
+<li>使用 <code>iframe</code> 。如果你暂时不能换成 <code>https</code>那可以试试以下方法</li>
+</ul>
+<h3 id="使用-iframe"><a href="#使用-iframe" class="headerlink" title="使用 iframe"></a>使用 <code>iframe</code></h3><p>我的思路是使用 <code>iframe</code>加载一个<code>https</code>的页面，然后这个 <code>iframe</code>使用  <code>geolocation</code>返回位置信息。说起干就干。在这里很容易碰到另一个问题，没错，我就碰到了。😂 我是借助 <code>coding.net</code>的 <code>Pages</code>服务创建了一个页面，为嘛不用<code>github</code>呢，很简单，<code>coding</code>可以很方便一键切换成<code>https</code>协议，而且在天朝速度 sousou 的。由于用了三方页面加载 <code>iframe</code>就难免碰到跨域问题。这里推荐 <a href="https://github.com/hstarorg/HstarDoc/blob/master/前端相关/Iframe跨域通信的几种方式.md" target="_blank" rel="noopener">Iframe跨域通信的几种方式</a></p>
+<p>最后使用 <code>postMessage</code>解决跨域问题。🤣 接口详情参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="noopener">postMessage</a> 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// frame</span></span><br><span class="line"><span class="keyword">if</span> (navigator.geolocation) &#123;</span><br><span class="line">  navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">p</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//成功获取位置</span></span><br><span class="line">    <span class="keyword">var</span> position = &#123;</span><br><span class="line">      lng: p.coords.longitude,</span><br><span class="line">      lat: p.coords.latitude</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">console</span>.log(position);</span><br><span class="line">    parent.postMessage(position, <span class="string">'*'</span>);</span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'GPSerr'</span>+err)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  alert( <span class="string">"OMG ! 您的设备不支持 GPS"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// parent</span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">"gpsIframe"</span> <span class="attr">src</span>=<span class="string">"yourwebsite"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (event.origin !== <span class="string">"yourwebsit"</span>) <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(evt.data);</span></span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>所有源码已放 github <a href="https://github.com/Citrusu/gps" target="_blank" rel="noopener">点我</a></p>
+</blockquote>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/blog/tags/Map/">#Map</a> <a class="fw3 ph1 dib" href="/blog/tags/百度地图/">#百度地图</a> <a class="fw3 ph1 dib" href="/blog/tags/getCurrentPosition/">#getCurrentPosition</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+<div id="disqus_thread" class="mt5">
+    <div id="commentBtn" class="comment-btn">Comments</div>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        // 点击,延迟加载评论
+        var commentBtn = document.querySelector('#commentBtn');
+        commentBtn.addEventListener('click', function(){
+            loadComments();
+        });
+        
+        setTimeout(loadComments, 10000);
+
+        function loadComments(){
+            if(commentBtn) {
+                commentBtn.style.display = 'node';
+                commentBtn = null;
+
+                var disqus_shortname = 'hicitrus-com';
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            };
+        }
+        
+    </script>
+    
+    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50" style="display:none;">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="/blog/img/avatar-adm1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Citrus">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            My name is Citrus Zhou
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/blog/create-git-repo/">搭建git仓库</a>
+        </p>
+    
+        <p>
+            <a href="/blog/learn-threejs/">全景学习</a>
+        </p>
+    
+        <p>
+            <a href="/blog/map/">Web 地图 GPS 定位</a>
+        </p>
+    
+        <p>
+            <a href="/blog/use-expect/">使用 expect</a>
+        </p>
+    
+        <p>
+            <a href="/blog/recognition-QRcode/">为什么微信二维码不能识别？</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<!--  partial('_partial/footer')  -->
+
+<!-- CNZZ analytics -->
+
+<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1261149292&web_id=1261149292"></script>
+</div>
+
+
+</body>
+
+</html>

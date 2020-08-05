@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog 1</title>
+  
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="http://hicitrus.com/blog/"/>
+  <updated>2020-08-05T02:11:52.151Z</updated>
+  <id>http://hicitrus.com/blog/</id>
+  
+  <author>
+    <name>Citrus</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建git仓库</title>
+    <link href="http://hicitrus.com/blog/create-git-repo/"/>
+    <id>http://hicitrus.com/blog/create-git-repo/</id>
+    <published>2018-03-19T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搭建git仓库"><a href="#搭建git仓库" class="headerlink" title="搭建git仓库"></a>搭建git仓库</h1><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>创建一个git和用户，用来运行git服务：</p><pre><code>adduser git</code></pre><h2 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h2><p>收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。</p><p>检查权限</p><pre><code>chmod 755 .sshchmod 644 .ssh/authorized_keys</code></pre><h2 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h2><p>先选定一个目录作为Git仓库，假定是/gitrep/test.git<br>​<br>    cd /<br>    chown -R git:git gitrep</p><p>进入gitrep目录</p><pre><code>git init --bare test.git</code></pre><blockquote><p>创建多个仓库只要在gitrep目录运行 <code>git init --bare xxx.git</code> 修改仓库名</p></blockquote><h2 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h2><p>修改端口之后与默认使用方法有与不同</p><pre><code>git clone ssh://git@ip:port/gitrep/test.git</code></pre><h2 id="初始已有仓库克隆为新仓库"><a href="#初始已有仓库克隆为新仓库" class="headerlink" title="初始已有仓库克隆为新仓库"></a>初始已有仓库克隆为新仓库</h2><pre><code>git clone remote_repo new_repo.git</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;搭建git仓库&quot;&gt;&lt;a href=&quot;#搭建git仓库&quot; class=&quot;headerlink&quot; title=&quot;搭建git仓库&quot;&gt;&lt;/a&gt;搭建git仓库&lt;/h1&gt;&lt;h2 id=&quot;创建用户&quot;&gt;&lt;a href=&quot;#创建用户&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://hicitrus.com/blog/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全景学习</title>
+    <link href="http://hicitrus.com/blog/learn-threejs/"/>
+    <id>http://hicitrus.com/blog/learn-threejs/</id>
+    <published>2017-11-19T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="学习-three-js"><a href="#学习-three-js" class="headerlink" title="学习 three.js"></a>学习 three.js</h2><p><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">three.js</a></p><p><a href="http://www.hewebgl.com/article/articledir/1" target="_blank" rel="noopener">学习全景基本概念</a></p><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul><li><p><a href="https://github.com/JeremyHeleine/Photo-Sphere-Viewer" target="_blank" rel="noopener">Photo Sphere Viewer</a> ：这个插件基于 three.js 可以直接生成一个全景的预览，处理好重力感应，API 调用简单。但是也有一些问题，经常画面跳动。</p></li><li><p><a href="https://github.com/mistic100/Photo-Sphere-Viewer" target="_blank" rel="noopener">Photo-Sphere-Viewer</a>：这个插件又是基于上一个做了完善和修改，主要有：</p><ul><li>标记 marker</li><li>标记事件</li><li>全局点击位置标点</li><li><p>修复了画面跳动</p><p>依赖：</p></li><li><p><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">three.js</a></p></li><li><a href="http://olado.github.io/doT" target="_blank" rel="noopener">doT.js</a></li><li><a href="https://github.com/mistic100/uEvent" target="_blank" rel="noopener">uEvent.js</a></li><li><a href="http://malko.github.io/D.js" target="_blank" rel="noopener">D.js</a></li><li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/controls/DeviceOrientationControls.js" target="_blank" rel="noopener">DeviceOrientationControls.js</a>  重力感应</li></ul></li></ul><pre><code>[应用示例](https://github.com/Citrusu/learn/blob/master/threejs/test1.html)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;学习-three-js&quot;&gt;&lt;a href=&quot;#学习-three-js&quot; class=&quot;headerlink&quot; title=&quot;学习 three.js&quot;&gt;&lt;/a&gt;学习 three.js&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/mrdoob
+      
+    
+    </summary>
+    
+    
+      <category term="全景" scheme="http://hicitrus.com/blog/tags/%E5%85%A8%E6%99%AF/"/>
+    
+      <category term="three.js" scheme="http://hicitrus.com/blog/tags/three-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web 地图 GPS 定位</title>
+    <link href="http://hicitrus.com/blog/map/"/>
+    <id>http://hicitrus.com/blog/map/</id>
+    <published>2017-09-07T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在地图上某城市添加多个宝藏，然后根据用户 GPS 信息获取当前位置在地图在寻找宝藏。当用户位置到达宝藏位置就打开宝藏。</p><h2 id="目标-技术点"><a href="#目标-技术点" class="headerlink" title="目标/技术点"></a>目标/技术点</h2><ul><li>在 web 页面中实现定位</li><li>当用户移动位置刷新当前位置</li><li>根据 经纬度计算地球上两点距离</li></ul><ul><li>通过百度地图 API 显示地图</li><li>通过百度地图 API 定时刷新（有问题）</li></ul><h2 id="问题及过程"><a href="#问题及过程" class="headerlink" title="问题及过程"></a>问题及过程</h2><h3 id="百度定位"><a href="#百度定位" class="headerlink" title="百度定位"></a>百度定位</h3><p>在使用百度地图的 <code>geolocation.getCurrentPosition</code> 接口发现移动位置并没有更新当前位置。查找资料说要设置 <code>maximumAge</code>, 实际上把这个值设置 0 也没啥用，照样不更新位置。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span> (<span class="params">r</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.getStatus() == BMAP_STATUS_SUCCESS) &#123;</span><br><span class="line">        <span class="keyword">var</span> lng = r.point.lng;</span><br><span class="line">        <span class="keyword">var</span> lat = r.point.lat;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'您的位置baidu：'</span> + lng + <span class="string">','</span> + lat + <span class="string">',时间：'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getMinutes() + <span class="string">':'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getSeconds());</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'failed'</span> + <span class="keyword">this</span>.getStatus());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    enableHighAccuracy: <span class="literal">true</span>,</span><br><span class="line">    maximumAge: <span class="number">0</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>经过多次测试猜测百度地图缓存了当前位置，大概需要10分钟才会更新新的位置。放弃之，下一个。</p><h3 id="使用原生接口"><a href="#使用原生接口" class="headerlink" title="使用原生接口"></a>使用原生接口</h3><p>使用原生接口<code>navigator.geolocation.getCurrentPosition</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (navigator.geolocation) &#123;</span><br><span class="line">    navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">p</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//成功获取位置</span></span><br><span class="line">        <span class="keyword">var</span> position = &#123;</span><br><span class="line">            lng: p.coords.longitude,</span><br><span class="line">            lat: p.coords.latitude</span><br><span class="line">        &#125;;</span><br><span class="line">      <span class="built_in">console</span>.log(position);</span><br><span class="line">    &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"Geolocation is not supported by this browser."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>几乎快要搞定了，通过定时调用当前位置再转换成百度的位置显示标记到地图上，完美！✌️BUT ! 安卓一切 OK，IOS 从10开始需要 <code>https</code>协议才能使用 <code>geolocation</code>。否则报 <code>[blocked] Access to geolocation was blocked over insecure connection to [http://www.mydomain.cn](http://www.mydomain.cn/)</code> 错 WTF🤷‍♂️。 </p><p>这时候，你可以选择</p><ul><li>把网站切换成 <code>https</code> ，下面就不用看啦。</li><li>使用 <code>iframe</code> 。如果你暂时不能换成 <code>https</code>那可以试试以下方法</li></ul><h3 id="使用-iframe"><a href="#使用-iframe" class="headerlink" title="使用 iframe"></a>使用 <code>iframe</code></h3><p>我的思路是使用 <code>iframe</code>加载一个<code>https</code>的页面，然后这个 <code>iframe</code>使用  <code>geolocation</code>返回位置信息。说起干就干。在这里很容易碰到另一个问题，没错，我就碰到了。😂 我是借助 <code>coding.net</code>的 <code>Pages</code>服务创建了一个页面，为嘛不用<code>github</code>呢，很简单，<code>coding</code>可以很方便一键切换成<code>https</code>协议，而且在天朝速度 sousou 的。由于用了三方页面加载 <code>iframe</code>就难免碰到跨域问题。这里推荐 <a href="https://github.com/hstarorg/HstarDoc/blob/master/前端相关/Iframe跨域通信的几种方式.md" target="_blank" rel="noopener">Iframe跨域通信的几种方式</a></p><p>最后使用 <code>postMessage</code>解决跨域问题。🤣 接口详情参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="noopener">postMessage</a> 。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// frame</span></span><br><span class="line"><span class="keyword">if</span> (navigator.geolocation) &#123;</span><br><span class="line">  navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">p</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//成功获取位置</span></span><br><span class="line">    <span class="keyword">var</span> position = &#123;</span><br><span class="line">      lng: p.coords.longitude,</span><br><span class="line">      lat: p.coords.latitude</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">console</span>.log(position);</span><br><span class="line">    parent.postMessage(position, <span class="string">'*'</span>);</span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'GPSerr'</span>+err)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  alert( <span class="string">"OMG ! 您的设备不支持 GPS"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// parent</span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">"gpsIframe"</span> <span class="attr">src</span>=<span class="string">"yourwebsite"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.addEventListener(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (event.origin !== <span class="string">"yourwebsit"</span>) <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(evt.data);</span></span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>所有源码已放 github <a href="https://github.com/Citrusu/gps" target="_blank" rel="noopener">点我</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在地图上某城市添加多个宝藏，然后根据用户 GPS 信息获取当前位置在地图在寻找宝藏。当用户位置到达宝藏位置就打开宝藏。&lt;/p&gt;
+&lt;h2 id
+      
+    
+    </summary>
+    
+    
+      <category term="Map" scheme="http://hicitrus.com/blog/tags/Map/"/>
+    
+      <category term="百度地图" scheme="http://hicitrus.com/blog/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+    
+      <category term="getCurrentPosition" scheme="http://hicitrus.com/blog/tags/getCurrentPosition/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 expect</title>
+    <link href="http://hicitrus.com/blog/use-expect/"/>
+    <id>http://hicitrus.com/blog/use-expect/</id>
+    <published>2017-08-21T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.152Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装expect"><a href="#安装expect" class="headerlink" title="安装expect"></a>安装expect</h1><blockquote><p>expect 可以完成一些自动化的任务，举个粟子：进入 a 服务器更新代码，退出再进入 b 服务器更新代码……</p></blockquote><h2 id="检查是否已经安装-expect"><a href="#检查是否已经安装-expect" class="headerlink" title="检查是否已经安装 expect"></a>检查是否已经安装 expect</h2><pre><code>whereis expect</code></pre><h2 id="安装tcl"><a href="#安装tcl" class="headerlink" title="安装tcl"></a>安装tcl</h2><p>下载地址：<a href="http://nchc.dl.sourceforge.net/sourceforge/tcl/tcl8.4.11-src.tar.gz" target="_blank" rel="noopener">http://nchc.dl.sourceforge.net/sourceforge/tcl/tcl8.4.11-src.tar.gz</a></p><pre><code>tar -zxvf tcl8.4.11-src.tar.gzcd tcl8.4.11/unix/./configuremake &amp;&amp; make install</code></pre><h2 id="安装expect-1"><a href="#安装expect-1" class="headerlink" title="安装expect"></a>安装expect</h2><p>下载地址：<a href="http://sourceforge.net/projects/expect/files/Expect/5.45/expect5.45.tar.gz/download" target="_blank" rel="noopener">http://sourceforge.net/projects/expect/files/Expect/5.45/expect5.45.tar.gz/download</a></p><pre><code>tar -zxvf expect5.45.tar.gz cd expect5.45./configuremake &amp;&amp; make install</code></pre><blockquote><p>安装参考 </p></blockquote><ul><li><a href="http://blog.csdn.net/silenceray/article/details/54582345" target="_blank" rel="noopener">http://blog.csdn.net/silenceray/article/details/54582345</a></li><li><a href="http://www.cnblogs.com/daojian/archive/2012/10/10/2718390.html" target="_blank" rel="noopener">http://www.cnblogs.com/daojian/archive/2012/10/10/2718390.html</a></li></ul><h2 id="使用expect-示例"><a href="#使用expect-示例" class="headerlink" title="使用expect 示例"></a>使用expect 示例</h2><pre><code>#!/usr/bin/expect# 上面的路径为 whereis expect 的路径set host 192.168.0.1set password abcd123set username rootset port 22set script &quot;ls&quot;set timeout -1spawn ssh -p $port $username@$hostexpect {    &quot;(yes/no)?&quot;    {send &quot;yes\r&quot;;exp_continue}    &quot;password:&quot;    {send &quot;$password\r&quot;;exp_continue}    &quot;#*&quot;    {send &quot;$script &amp;&amp; exit\r&quot;}}interact</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;安装expect&quot;&gt;&lt;a href=&quot;#安装expect&quot; class=&quot;headerlink&quot; title=&quot;安装expect&quot;&gt;&lt;/a&gt;安装expect&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;expect 可以完成一些自动化的任务，举个粟子：进入 a 服务器
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://hicitrus.com/blog/tags/linux/"/>
+    
+      <category term="expect" scheme="http://hicitrus.com/blog/tags/expect/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么微信二维码不能识别？</title>
+    <link href="http://hicitrus.com/blog/recognition-QRcode/"/>
+    <id>http://hicitrus.com/blog/recognition-QRcode/</id>
+    <published>2017-01-15T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.152Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="原因分析："><a href="#原因分析：" class="headerlink" title="原因分析："></a>原因分析：</h3><ul><li>尺寸太小</li><li>清晰度不够</li></ul><h3 id="测试过程"><a href="#测试过程" class="headerlink" title="测试过程"></a>测试过程</h3><ul><li><p>尺寸：100-20px</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片大小测试</span></span><br><span class="line"><span class="keyword">var</span> src = <span class="string">'img/'</span>;</span><br><span class="line"><span class="keyword">var</span> img = <span class="string">'act_happy_code'</span>;</span><br><span class="line"><span class="keyword">var</span> type = [<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>];</span><br><span class="line"><span class="keyword">var</span> size = [<span class="number">100</span>,<span class="number">90</span>,<span class="number">80</span>,<span class="number">70</span>,<span class="number">60</span>,<span class="number">50</span>,<span class="number">40</span>,<span class="number">30</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelectorAll(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,sizeLen = size.length; i &lt; sizeLen; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>,typeLen = type.length; j &lt; typeLen; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> imgBox = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> ctext = <span class="built_in">document</span>.createTextNode(type[j]+ <span class="string">'_'</span> + size[i] + <span class="string">'x'</span> + size[i] + <span class="string">'px'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> cimg = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">        cimg.style.width = size[i] + <span class="string">'px'</span>;</span><br><span class="line">        cimg.style.height = size[i] + <span class="string">'px'</span>;</span><br><span class="line">        cimg.setAttribute(<span class="string">'src'</span>, src + img + <span class="string">'.'</span>+ type[j] );</span><br><span class="line">        imgBox.appendChild(ctext);</span><br><span class="line">        imgBox.appendChild(cimg);</span><br><span class="line">        box.appendChild(imgBox);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>清晰度：100%-5% </p><blockquote><p>在清晰度测试上我使用了七牛的压缩接口</p></blockquote></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片质量测试</span></span><br><span class="line"><span class="keyword">var</span> src = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">var</span> mode = <span class="string">'?imageView2/2'</span>;</span><br><span class="line"><span class="keyword">var</span> img = <span class="string">'http://ob9fno759.bkt.clouddn.com/act_happy_code'</span>;</span><br><span class="line"><span class="keyword">var</span> type = [<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>];</span><br><span class="line"><span class="keyword">var</span> quality = [<span class="number">100</span>,<span class="number">75</span>,<span class="number">50</span>,<span class="number">25</span>,<span class="number">10</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> size = [<span class="number">80</span>,<span class="number">60</span>,<span class="number">40</span>,<span class="number">30</span>,<span class="number">20</span>];</span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelectorAll(<span class="string">'body'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,sizeLen = size.length; i &lt; sizeLen; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>,qLen = quality.length; j &lt; qLen; j++)&#123;</span><br><span class="line">        <span class="keyword">var</span> randNum = <span class="built_in">Math</span>.ceil(<span class="built_in">Math</span>.random()*<span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">var</span> imgBox = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> ctext = <span class="built_in">document</span>.createTextNode(<span class="string">'质量:'</span>+ quality[j] +<span class="string">'%'</span> + <span class="string">'_'</span> + size[i] + <span class="string">'x'</span> + size[i] + <span class="string">'px'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> cimg = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">        cimg.setAttribute(<span class="string">'src'</span>, src + img +<span class="string">'.gif'</span>+ mode +<span class="string">'/w/'</span>+size[i] + <span class="string">'/h/'</span>+ size[i] + <span class="string">'/q/'</span> + quality[j] +<span class="string">'#'</span>+randNum);</span><br><span class="line">        imgBox.appendChild(ctext);</span><br><span class="line">        imgBox.appendChild(cimg);</span><br><span class="line">        box.appendChild(imgBox);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>经过以上测试：尺寸和清晰度都有可能影响图片识别，但是都不是最影响识别的原因。</p></blockquote><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>先看看下图，信息过于密集，为了美观在一般的活动设计中二维码都不会很大，而这才是最影响二维码识别的原因。</p><p><img src="http://etui.yidake.com/help/wp-content/uploads/2017/01/2017011610024854.gif" alt="enter image description here"></p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ul><li>获取图片的原链接</li><li>把原链接转换成短链接 <a href="http://dwz.wailian.work/" target="_blank" rel="noopener">短链转换工具</a> </li><li>最后把短链生成二维码</li></ul><p>这样就能得到一张识别度高的二维码图片。</p><h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><ul><li>考虑到目前还有不少小屏手机，建议二维码的实际显示尺寸不少于40*40px</li><li>如果二维码在大图上面，压缩之后可以尝试把二维码提取出来，然后再把未压缩的二维码与压缩后的背景合成一张。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;原因分析：&quot;&gt;&lt;a href=&quot;#原因分析：&quot; class=&quot;headerlink&quot; title=&quot;原因分析：&quot;&gt;&lt;/a&gt;原因分析：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;尺寸太小&lt;/li&gt;
+&lt;li&gt;清晰度不够&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;测试过程&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+    
+      <category term="微信" scheme="http://hicitrus.com/blog/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+      <category term="二维码" scheme="http://hicitrus.com/blog/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于责任</title>
+    <link href="http://hicitrus.com/blog/about-respons/"/>
+    <id>http://hicitrus.com/blog/about-respons/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.150Z</updated>
+    
+    <content type="html"><![CDATA[<p>感觉自己的优点挺多的，比如专注，耐心，友善……以前一直对自己感觉良好，但是除了责任心。可能我自己也能感受到，遇到难事就想放弃，过后发现其实了就这样。包括对感情的态度，那么轻易的放弃了一段感情。</p><p>最近一年感觉自己在这方面成长很多，也许是工作上需要负责的事情比较多吧，遇到难点心态已经不同。现在会想着怎样去解决，而不是怎么去躲避，当然结果也是有很大不同。虽然工作很忙，但是挺感谢这份工作，真正让我学会担当，懂得责任。</p><p>但是又因为太忙，感觉有些方面鲜于经营。</p><p>1，做it的几乎每天都忙，在电脑前的时间轻轻松松超过10小时，首当其冲有愧于自己的眼睛，眼睛干涩，视力下降。以前经常去骑车锻炼的好身体好身材慢慢变得亚健康，感觉很对不起自己。</p><p>2，对不起现在的女票。现在每周只能周日陪她，还有时候紧急情况周日还陪我加班。很感谢她，也很有愧于她。</p><p>3，虽然收获很多，但是也失去很多。对于自己的忙感觉已经变得病态，快要没有自我。时间变得非常宝贵，很难去按照之前的计划去学习新的知识，去逐步成长。还有自己的旅行计划，也被迫一一搁浅。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;感觉自己的优点挺多的，比如专注，耐心，友善……以前一直对自己感觉良好，但是除了责任心。可能我自己也能感受到，遇到难事就想放弃，过后发现其实了就这样。包括对感情的态度，那么轻易的放弃了一段感情。&lt;/p&gt;
+&lt;p&gt;最近一年感觉自己在这方面成长很多，也许是工作上需要负责的事情比较多
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://hicitrus.com/blog/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="感想" scheme="http://hicitrus.com/blog/tags/%E6%84%9F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git 常用命令</title>
+    <link href="http://hicitrus.com/blog/git-base/"/>
+    <id>http://hicitrus.com/blog/git-base/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h1><h2 id="放弃本地的修改，用远程覆盖本地"><a href="#放弃本地的修改，用远程覆盖本地" class="headerlink" title="放弃本地的修改，用远程覆盖本地"></a>放弃本地的修改，用远程覆盖本地</h2><pre><code>git fetch --allgit reset --hard origin/master</code></pre><blockquote><p>git fetch 只是下载远程的库的内容，不做任何的合并git reset 把HEAD指向刚刚下载的最新的版本</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;git-常用命令&quot;&gt;&lt;a href=&quot;#git-常用命令&quot; class=&quot;headerlink&quot; title=&quot;git 常用命令&quot;&gt;&lt;/a&gt;git 常用命令&lt;/h1&gt;&lt;h2 id=&quot;放弃本地的修改，用远程覆盖本地&quot;&gt;&lt;a href=&quot;#放弃本地的修改，用远程覆盖本
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://hicitrus.com/blog/tags/git/"/>
+    
+      <category term="github" scheme="http://hicitrus.com/blog/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gulp的基本使用</title>
+    <link href="http://hicitrus.com/blog/gulp-base/"/>
+    <id>http://hicitrus.com/blog/gulp-base/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发过程中自动执行常见任务。Gulp.js 是基于 Node.js 构建的，利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。Gulp.js 源文件和你用来定义任务的 Gulp 文件都是通过 JavaScript（或者 CoffeeScript ）源码来实现的。</p></blockquote><h2 id="1-全局安装-gulp"><a href="#1-全局安装-gulp" class="headerlink" title="1.全局安装 gulp"></a>1.全局安装 gulp</h2><pre><code>npm install --global gulp</code></pre><h2 id="2-作为项目的开发依赖（devDependencies）安装"><a href="#2-作为项目的开发依赖（devDependencies）安装" class="headerlink" title="2.作为项目的开发依赖（devDependencies）安装"></a>2.作为项目的开发依赖（devDependencies）安装</h2><pre><code>npm install --save-dev gulp</code></pre><h2 id="3-安装依赖组件"><a href="#3-安装依赖组件" class="headerlink" title="3.安装依赖组件"></a>3.安装依赖组件</h2><pre><code>npm snstall xx</code></pre><h2 id="4-在项目根目录下创建一个名为-gulpfile-js-的文件-引入依赖组件："><a href="#4-在项目根目录下创建一个名为-gulpfile-js-的文件-引入依赖组件：" class="headerlink" title="4.在项目根目录下创建一个名为 gulpfile.js 的文件,引入依赖组件："></a>4.在项目根目录下创建一个名为 gulpfile.js 的文件,引入依赖组件：</h2><pre><code>// 引入 gulp及组件var gulp=require(&apos;gulp&apos;),  //gulp基础库    cleanCSS = require(&apos;gulp-clean-css&apos;),   //css压缩    concat=require(&apos;gulp-concat&apos;),   //合并文件    uglify=require(&apos;gulp-uglify&apos;),   //js压缩    rename=require(&apos;gulp-rename&apos;),   //文件重命名    jshint=require(&apos;gulp-jshint&apos;),   //js检查    imagemin = require(&apos;gulp-imagemin&apos;),    del = require(&apos;del&apos;),            //清除文件    cache = require(&apos;gulp-cache&apos;),   //图片缓存，只有图片替换了才压缩    notify=require(&apos;gulp-notify&apos;);   //提示//cssgulp.task(&apos;minifycss&apos;,function(){   return gulp.src(&apos;etui/css/*.css&apos;)      //设置css       .pipe(concat(&apos;etui.css&apos;))          //合并css文件到&quot;etui&quot;       .pipe(gulp.dest(&apos;dist/styles&apos;))    //设置输出路径       .pipe(rename({suffix:&apos;.min&apos;}))     //修改文件名       //.pipe(cleanCSS())                //压缩文件       //.pipe(gulp.dest(&apos;dist/styles&apos;))         //输出文件目录       .pipe(notify({message:&apos;css task ok&apos;}));   //提示成功});// Imagesgulp.task(&apos;minifyimg&apos;, function() {  return gulp.src(&apos;Images/double/**/*&apos;)    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))    .pipe(gulp.dest(&apos;dist/images&apos;))    .pipe(notify({ message: &apos;Images task complete&apos; }));});// Scriptsgulp.task(&apos;minifyjs&apos;, function() {    return gulp.src(&apos;Js/**/**/*.js&apos;)        //.pipe(concat(&apos;main.js&apos;))    //合并所有js到main.js        //.pipe(gulp.dest(&apos;dist/scripts&apos;))    //输出main.js到文件夹        .pipe(rename({suffix: &apos;.min&apos;}))   //rename压缩后的文件名        .pipe(uglify())    //压缩        .pipe(gulp.dest(&apos;dist/scripts&apos;));  //输出});gulp.task(&apos;default&apos;, [&apos;minifycss&apos;, &apos;minifyimg&apos;,&apos;minifyjs&apos;]);</code></pre><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><pre><code>gulp</code></pre><p>或者</p><pre><code>gulp &lt;taskname&gt;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发过程中自动执行常见任务。Gulp.js 是基于 Node.js 构建的，利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。Gulp.js 源文件和你用来定义任
+      
+    
+    </summary>
+    
+    
+      <category term="nodejs" scheme="http://hicitrus.com/blog/tags/nodejs/"/>
+    
+      <category term="gulp" scheme="http://hicitrus.com/blog/tags/gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux常用命令</title>
+    <link href="http://hicitrus.com/blog/linux-base/"/>
+    <id>http://hicitrus.com/blog/linux-base/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="寻找文件和目录-find"><a href="#寻找文件和目录-find" class="headerlink" title="寻找文件和目录 find"></a>寻找文件和目录 <code>find</code></h2><pre><code>find pathname -options [-print -exec -ok ...]</code></pre><blockquote><p><code>find / -name mydir</code></p></blockquote><h2 id="创建软链接-快捷方式"><a href="#创建软链接-快捷方式" class="headerlink" title="创建软链接/快捷方式"></a>创建软链接/快捷方式</h2><pre><code>ln -s 源文件 目标文件</code></pre><blockquote><p> 当前目录是<code>/local</code>，而我经常要访问<code>/usr/local/linux/work</code><br>那么我就可以使用在<code>local</code>下建立一个文件<code>linkwork</code>，<br>然后<code>ln -s /usr/local/linux/work  /local/linkwork</code></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;寻找文件和目录-find&quot;&gt;&lt;a href=&quot;#寻找文件和目录-find&quot; class=&quot;headerlink&quot; title=&quot;寻找文件和目录 find&quot;&gt;&lt;/a&gt;寻找文件和目录 &lt;code&gt;find&lt;/code&gt;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;find path
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://hicitrus.com/blog/tags/linux/"/>
+    
+      <category term="系统" scheme="http://hicitrus.com/blog/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs基本安装和配置</title>
+    <link href="http://hicitrus.com/blog/nodejs-base/"/>
+    <id>http://hicitrus.com/blog/nodejs-base/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.152Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="首先安装"><a href="#首先安装" class="headerlink" title="首先安装"></a>首先安装</h2><ul><li>下载安装包 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></li><li><p>查看版本</p><ul><li>进入cmd</li><li>运行 <code>node -v</code></li><li>运行 <code>npm -v</code></li></ul></li></ul><blockquote><p>能正常显示出版本信息就说明已经安装成功</p></blockquote><ul><li>查看路径</li></ul><pre><code>npm root -g</code></pre><p>或者</p><pre><code>npm config get</code></pre><h2 id="使用npm安装模块"><a href="#使用npm安装模块" class="headerlink" title="使用npm安装模块"></a>使用npm安装模块</h2><pre><code>$ npm install -g gulp</code></pre><h2 id="切换到淘宝镜像"><a href="#切换到淘宝镜像" class="headerlink" title="切换到淘宝镜像"></a>切换到淘宝镜像</h2><pre><code>npm install cnpm -g --registry=https://registry.npm.taobao.org</code></pre><blockquote><p>cnpm跟npm用法完全一致，只是在执行命令时将npm改为cnpm</p></blockquote><h1 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h1><h2 id="删除window下目录过长的文件夹"><a href="#删除window下目录过长的文件夹" class="headerlink" title="删除window下目录过长的文件夹"></a>删除window下目录过长的文件夹</h2><pre><code>rm -rf 目录</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;首先安装&quot;&gt;&lt;a href=&quot;#首先安装&quot; class=&quot;headerlink&quot; title=&quot;首先安装&quot;&gt;&lt;/a&gt;首先安装&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;下载安装包 &lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; r
+      
+    
+    </summary>
+    
+    
+      <category term="nodejs" scheme="http://hicitrus.com/blog/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习方法</title>
+    <link href="http://hicitrus.com/blog/learn-method/"/>
+    <id>http://hicitrus.com/blog/learn-method/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="学习方法："><a href="#学习方法：" class="headerlink" title="学习方法："></a>学习方法：</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><ul><li>官方说明</li><li>自己的理解</li></ul><h2 id="能做什么"><a href="#能做什么" class="headerlink" title="能做什么"></a>能做什么</h2><ul><li>功能清单</li></ul><h2 id="为什么要这样"><a href="#为什么要这样" class="headerlink" title="为什么要这样"></a>为什么要这样</h2><ul><li>类似功能的方法列表</li><li>对比xx有何优缺点</li></ul><h2 id="怎么去做"><a href="#怎么去做" class="headerlink" title="怎么去做"></a>怎么去做</h2><ul><li>实现方法</li></ul><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul><li>怎样才算学会</li><li>学习成本估算</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;学习方法：&quot;&gt;&lt;a href=&quot;#学习方法：&quot; class=&quot;headerlink&quot; title=&quot;学习方法：&quot;&gt;&lt;/a&gt;学习方法：&lt;/h1&gt;&lt;h2 id=&quot;是什么&quot;&gt;&lt;a href=&quot;#是什么&quot; class=&quot;headerlink&quot; title=&quot;是什么&quot;&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="感想" scheme="http://hicitrus.com/blog/tags/%E6%84%9F%E6%83%B3/"/>
+    
+      <category term="学习" scheme="http://hicitrus.com/blog/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于我</title>
+    <link href="http://hicitrus.com/blog/about/"/>
+    <id>http://hicitrus.com/blog/about/</id>
+    <published>2015-12-31T16:00:00.000Z</published>
+    <updated>2020-08-05T02:11:52.151Z</updated>
+    
+    <content type="html"><![CDATA[<p>92男，前端工程师。兴趣广泛，爱折腾，酷爱骑行。</p><blockquote><p>本博客文章主要分享于技术笔记。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;92男，前端工程师。兴趣广泛，爱折腾，酷爱骑行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本博客文章主要分享于技术笔记。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

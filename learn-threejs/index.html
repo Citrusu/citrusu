@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!--Description-->
+    
+        <meta name="description" content="学习 three.jsthree.js
+学习全景基本概念
+插件
+Photo Sphere Viewer ：这个插件基于 three.js 可以直接生成一个全景的预览，处理好重力感应，API 调用简单。但是也有一些问题，经常画面跳动。
+
+Photo-Sphere-Viewer：这个插件又是基于上一个做">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Citrus">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="全景学习">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Blog 1">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>全景学习 - Blog 1</title>
+
+    <!-- Tachyons Core CSS -->
+    <!-- <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css"> -->
+    <link rel="stylesheet" href="/blog/css/tachyons.css">
+    <link rel="stylesheet" href="/blog/css/font-awesome.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/blog/about" 
+                    title="About">
+                    About
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">全景学习</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2017-11-20</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="w-100 center lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/blog/tags/全景/">#全景</a> <a class="fw3 ph1 dib" href="/blog/tags/three-js/">#three.js</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="学习-three-js"><a href="#学习-three-js" class="headerlink" title="学习 three.js"></a>学习 three.js</h2><p><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">three.js</a></p>
+<p><a href="http://www.hewebgl.com/article/articledir/1" target="_blank" rel="noopener">学习全景基本概念</a></p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><p><a href="https://github.com/JeremyHeleine/Photo-Sphere-Viewer" target="_blank" rel="noopener">Photo Sphere Viewer</a> ：这个插件基于 three.js 可以直接生成一个全景的预览，处理好重力感应，API 调用简单。但是也有一些问题，经常画面跳动。</p>
+</li>
+<li><p><a href="https://github.com/mistic100/Photo-Sphere-Viewer" target="_blank" rel="noopener">Photo-Sphere-Viewer</a>：这个插件又是基于上一个做了完善和修改，主要有：</p>
+<ul>
+<li>标记 marker</li>
+<li>标记事件</li>
+<li>全局点击位置标点</li>
+<li><p>修复了画面跳动</p>
+<p>依赖：</p>
+</li>
+<li><p><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">three.js</a></p>
+</li>
+<li><a href="http://olado.github.io/doT" target="_blank" rel="noopener">doT.js</a></li>
+<li><a href="https://github.com/mistic100/uEvent" target="_blank" rel="noopener">uEvent.js</a></li>
+<li><a href="http://malko.github.io/D.js" target="_blank" rel="noopener">D.js</a></li>
+<li><a href="https://github.com/mrdoob/three.js/blob/master/examples/js/controls/DeviceOrientationControls.js" target="_blank" rel="noopener">DeviceOrientationControls.js</a>  重力感应</li>
+</ul>
+</li>
+</ul>
+<pre><code>[应用示例](https://github.com/Citrusu/learn/blob/master/threejs/test1.html)
+</code></pre>
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/blog/tags/全景/">#全景</a> <a class="fw3 ph1 dib" href="/blog/tags/three-js/">#three.js</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+<div id="disqus_thread" class="mt5">
+    <div id="commentBtn" class="comment-btn">Comments</div>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        // 点击,延迟加载评论
+        var commentBtn = document.querySelector('#commentBtn');
+        commentBtn.addEventListener('click', function(){
+            loadComments();
+        });
+        
+        setTimeout(loadComments, 10000);
+
+        function loadComments(){
+            if(commentBtn) {
+                commentBtn.style.display = 'node';
+                commentBtn = null;
+
+                var disqus_shortname = 'hicitrus-com';
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            };
+        }
+        
+    </script>
+    
+    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50" style="display:none;">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="/blog/img/avatar-adm1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Citrus">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            My name is Citrus Zhou
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/blog/create-git-repo/">搭建git仓库</a>
+        </p>
+    
+        <p>
+            <a href="/blog/learn-threejs/">全景学习</a>
+        </p>
+    
+        <p>
+            <a href="/blog/map/">Web 地图 GPS 定位</a>
+        </p>
+    
+        <p>
+            <a href="/blog/use-expect/">使用 expect</a>
+        </p>
+    
+        <p>
+            <a href="/blog/recognition-QRcode/">为什么微信二维码不能识别？</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<!--  partial('_partial/footer')  -->
+
+<!-- CNZZ analytics -->
+
+<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1261149292&web_id=1261149292"></script>
+</div>
+
+
+</body>
+
+</html>
