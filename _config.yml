@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Blog 1
+title: Blog
 subtitle:
 description:
 author: Citrus
@@ -75,6 +75,6 @@ cnzz: 1261149292
 deploy:
   type: git
   repository: 
-    coding: git@e.coding.net:citrusu/blog.git
+    #coding: git@e.coding.net:citrusu/blog.git
     github: git@github.com:Citrusu/blog.git
   branch: gh-pages
