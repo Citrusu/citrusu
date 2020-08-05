@@ -1,9 +1,11 @@
 {
-  "name": "citrus blog",
+  "name": "citrus",
+  "description": "citrus blog",
+  "repository": "https://github.com/Citrusu/blog",
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.8"
+    "version": "3.9.0"
   },
   "dependencies": {
     "assert-plus": "^1.0.0",
@@ -26,5 +28,6 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
     "source-map": "^0.1.34"
-  }
+  },
+  "license": "MIT"
 }
